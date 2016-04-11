@@ -9,12 +9,16 @@
 
 #include <stdio.h>
 
+float fahrenheit_to_celsius(float fahr)
+{
+	return 5.0/9 * (fahr - 32);
+}
+
 int main()
 {
-	float fahr = 500.0;
 
-	printf("result (using integer maths): %d\n", 5/9*(fahr - 32));
-	printf("result (using floating point maths): %g\n", 5/9*(fahr - 32));
+	printf("result (using floating point maths): %g\n",
+		fahrenheit_to_celsius(500.0));
 					/* format strings begin with %
                                          we use format strings to
 					 indicate the type of value
