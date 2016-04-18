@@ -17,10 +17,28 @@ float fahrenheit_to_celsius(float fahr)
 int main()
 {
 
-	printf("result (using floating point maths): %g\n",
-		fahrenheit_to_celsius(500.0));
-					/* format strings begin with %
-                                         we use format strings to
-					 indicate the type of value
-	                                 that printf should expect */
+	float start = 100.0, end = 600.0, step = 50.0, fahr;
+	float temp;
+
+	printf("give me a start:");
+	scanf("%f", &start);
+	printf("give me an end:");
+	scanf("%f", &end);
+	printf("give me a step size:");
+	scanf("%f", &step);
+
+	if ( start > end && step > 0 ) {
+		step = -step; /* negative step */
+	}
+	/* 
+		a <= b <=> c*a <= c*b 
+		-a >= -b
+		a <= b
+	*/
+
+	for(fahr = start; step*fahr <= step*end; fahr = fahr + step) {
+		printf("%g°F => %5.1f°C\n", fahr, fahrenheit_to_celsius(fahr));
+	}
+
+
 }
