@@ -17,12 +17,12 @@ float fahrenheit_to_celsius(float fahr)
 float ask_for_float(char prompt[]) {
 	int rv = 0;
 	float foo;
-	char garbage[80]; 
-	while(rv == 0) {
+	char str[80], garbage[80];; 
+	while(rv != 1) {
 		printf("%s", prompt);
-		rv = scanf("%f", &foo);
-		if(rv == 0) {
-			scanf("%s", garbage);
+		fgets(str, 80, stdin);
+		rv = sscanf(str, "%f%s", &foo, garbage);
+		if ( rv != 1 ) {
 			fprintf(stderr, "error: invalid input, please try again\n");
 		}
 	}
