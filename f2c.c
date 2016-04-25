@@ -14,18 +14,35 @@ float fahrenheit_to_celsius(float fahr)
 	return 5.0/9 * (fahr - 32);
 }
 
+float ask_for_float(char prompt[]) {
+	int rv = 0;
+	float foo;
+	char garbage[80]; 
+	while(rv == 0) {
+		printf("%s", prompt);
+		rv = scanf("%f", &foo);
+		if(rv == 0) {
+			scanf("%s", garbage);
+			fprintf(stderr, "error: invalid input, please try again\n");
+		}
+	}
+
+	return foo;
+}
+
 int main()
 {
 
 	float start = 100.0, end = 600.0, step = 50.0, fahr;
 	float temp;
+	char garbage[80]; 
+	int rv = 0;
 
-	printf("give me a start:");
-	scanf("%f", &start);
-	printf("give me an end:");
-	scanf("%f", &end);
-	printf("give me a step size:");
-	scanf("%f", &step);
+	start = ask_for_float("give me a start: ");
+
+	end = ask_for_float("give me an end: ");
+
+	step = ask_for_float("give me a step size: ");
 
 	if ( start > end && step > 0 ) {
 		step = -step; /* negative step */
