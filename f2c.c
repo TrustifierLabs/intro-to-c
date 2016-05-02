@@ -30,7 +30,7 @@ float ask_for_float(char prompt[]) {
 	return foo;
 }
 
-int main()
+int main(int argc, char *argv[], char **envp)
 {
 
 	float start = 100.0, end = 600.0, step = 50.0, fahr;
