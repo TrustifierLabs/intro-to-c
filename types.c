@@ -13,12 +13,11 @@ int main() {
 	long l;			/* 32-bits or 64-bits */
 
 
-	float f;		/* architecture dependent */
-	double d;		/* architecture dependent */
-	long double x;		/* architecture dependent */
+	float f;		/* IEEE float */
+	double d;		/* IEEE double */
+	long double x;		/* 2 x 1EEE double */
 
 	/* in C there is an operator called sizeof(x) always returns a long */
-#if 0
 	printf("sizeof(char)  = %ld\n", 	8*sizeof(c));
 	printf("sizeof(short) = %ld\n", 	8*sizeof(s));
 	printf("sizeof(int)   = %ld\n", 	8*sizeof(k));
@@ -26,7 +25,6 @@ int main() {
 	printf("sizeof(float) = %ld\n", 	8*sizeof(f));
 	printf("sizeof(double)= %ld\n", 	8*sizeof(d));
 	printf("sizeof(long double)= %ld\n", 	8*sizeof(x));
-#endif
 
 	char_test();
 
