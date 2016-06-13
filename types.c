@@ -18,13 +18,14 @@ int main() {
 	long double x;		/* 2 x 1EEE double */
 
 	/* in C there is an operator called sizeof(x) always returns a long */
-	printf("sizeof(char)  = %ld\n", 	8*sizeof(c));
-	printf("sizeof(short) = %ld\n", 	8*sizeof(s));
-	printf("sizeof(int)   = %ld\n", 	8*sizeof(k));
-	printf("sizeof(long)  = %ld\n", 	8*sizeof(l));
-	printf("sizeof(float) = %ld\n", 	8*sizeof(f));
-	printf("sizeof(double)= %ld\n", 	8*sizeof(d));
-	printf("sizeof(long double)= %ld\n", 	8*sizeof(x));
+	int bits_in_byte = 8; //bits
+	printf("sizeof(char)        = %ld bits\n", 	sizeof(c)*bits_in_byte);
+	printf("sizeof(short)       = %ld bits\n", 	sizeof(s)*bits_in_byte);
+	printf("sizeof(int)         = %ld bits\n", 	sizeof(k)*bits_in_byte);
+	printf("sizeof(long)        = %ld bits\n", 	sizeof(l)*bits_in_byte);
+	printf("sizeof(float)       = %ld bits\n", 	sizeof(f)*bits_in_byte);
+	printf("sizeof(double)      = %ld bits\n", 	sizeof(d)*bits_in_byte);
+	printf("sizeof(long double) = %ld bits\n", 	sizeof(x)*bits_in_byte);
 
 	char_test();
 
@@ -34,9 +35,11 @@ int char_test() {
 	short c1 = 5, c2 = 8; /* basically an 8-bit number */
 	/* we've got eight bits */
 
+	/* in this case the left-most bit indicates the sign of the number */
 	printf("signed interpretation of data: %hd\n", c1 - c2);
-	/* 	in the following case the left most bit is treated
-		as part of the number. */
 
+	/* 	in the following case the left most bit is treated
+ 	 *  	as part of the number. */
 	printf("unsigned interpretation of data: %hu\n", c1 - c2);
 }
+
